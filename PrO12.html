@@ -1,0 +1,213 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Biosphere - Medical Innovations</title>
+
+    <style>
+
+        body {
+            font-family: Arial;
+            background-color: #eaf6f6;
+            margin: 0;
+        }
+
+        header {
+            background-color: teal;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        nav {
+            background-color: darkslategrey;
+            padding: 15px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            margin: 15px;
+            text-decoration: none;
+        }
+
+        section {
+            background-color: white;
+            margin: 20px;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        h2 {
+            color: teal;
+        }
+
+        input, textarea {
+            width: 90%;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        button {
+            background-color: teal;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        footer {
+            background-color: darkslategrey;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <header>
+
+        <h1>BIOSPHERE</h1>
+
+        <p>Biotechnology Drive Medical Innovations</p>
+
+    </header>
+
+    <nav>
+
+        <a href="#home">Home</a>
+        <a href="#innovations">Innovations</a>
+        <a href="#research">Research</a>
+
+    </nav>
+
+    <section id="home">
+
+        <h2>Welcome to Biosphere</h2>
+
+        <p>
+            Biosphere explores biotechnology and
+            medical innovations for a healthier future.
+        </p>
+
+    </section>
+
+    <section id="innovations">
+
+        <h2>Medical Innovations</h2>
+
+        <h3>Genetic Engineering</h3>
+        <p>Helps in studying and modifying genes.</p>
+
+        <h3>Stem Cell Technology</h3>
+        <p>Supports tissue repair and regenerative medicine.</p>
+
+        <h3>Medical Biotechnology</h3>
+        <p>Helps develop medicines and vaccines.</p>
+
+    </section>
+
+    <section id="research">
+
+        <h2>Endpoint Data Management</h2>
+
+        <h3>Medical Research Data</h3>
+
+        <button onclick="loadData()">
+            Load Data
+        </button>
+
+        <p id="result"></p>
+
+        <h3>Submit Research</h3>
+
+        <input type="text" id="name"
+        placeholder="Innovation Name">
+
+        <input type="text" id="researcher"
+        placeholder="Researcher Name">
+
+        <textarea id="description"
+        placeholder="Research Description"></textarea>
+
+        <button onclick="submitData()">
+            Submit
+        </button>
+
+        <p id="message"></p>
+
+    </section>
+
+    <footer>
+
+        <p>© 2026 Biosphere Medical Innovations</p>
+
+    </footer>
+
+    <script>
+
+        // 1. JavaScript Function
+
+        function loadData() {
+
+            // 2. API Call
+
+            fetch("https://jsonplaceholder.typicode.com/posts/1")
+
+            .then(response => response.json())
+
+            .then(data => {
+
+                document.getElementById("result").innerHTML =
+                "Research Information: " + data.title;
+
+                console.log(data);
+
+            })
+
+            .catch(error => {
+
+                console.log("Error:", error);
+
+            });
+
+        }
+
+
+        // 3. Input Validation
+
+        function submitData() {
+
+            let name = document.getElementById("name").value;
+
+            let researcher = document.getElementById("researcher").value;
+
+            let description = document.getElementById("description").value;
+
+            // 4. Test and Debugging
+
+            if (name == "" || researcher == "" || description == "") {
+
+                document.getElementById("message").innerHTML =
+                "Please fill all the fields.";
+
+                return;
+
+            }
+
+            document.getElementById("message").innerHTML =
+            "Research submitted successfully!";
+
+            console.log("Research submitted");
+
+        }
+
+    </script>
+
+</body>
+</html>
